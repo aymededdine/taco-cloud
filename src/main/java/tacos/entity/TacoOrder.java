@@ -7,12 +7,15 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
+
+import tacos.User;
 
 
 @Entity
@@ -40,6 +43,8 @@ public class TacoOrder {
 		this.ccCVV = ccCVV;
 		this.tacos = tacos;
 	}
+	
+	
 	
 	
 
@@ -96,6 +101,9 @@ public class TacoOrder {
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Taco> tacos = new ArrayList<>();
+	
+	@ManyToOne
+	private User user;
 	
 	
 	public void addTaco(Taco taco) {

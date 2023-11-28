@@ -6,6 +6,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Ingredient {
+	
+	public Ingredient() {
+    }
 
 	public Ingredient(String id, String name, Type type) {
 		super();
@@ -15,9 +18,9 @@ public class Ingredient {
 	}
 
 	@Id
-	private final String id;
-	private final String name;
-	private final Type type;
+	private  String id;
+	private  String name;
+	private  Type type;
 
 	public enum Type {
 		WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE

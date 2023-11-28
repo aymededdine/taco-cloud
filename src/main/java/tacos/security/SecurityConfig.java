@@ -29,6 +29,8 @@ public class SecurityConfig {
 			throw new UsernameNotFoundException("User '" + username + "' not found");
 		};
 	}
+	
+	
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -42,7 +44,6 @@ public class SecurityConfig {
 					.formLogin()
 						.loginPage("/login")
 						.defaultSuccessUrl("/design", true)
-				.and().oauth2Login().loginPage("/login")
 				
 				.and()
 				 .logout()
