@@ -1,0 +1,75 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0;
+}
+
+h1 {
+	color: #007BFF;
+	text-align: center;
+	margin-top: 50px;
+	font-size: 2.5em;
+}
+
+form {
+	width: 80%;
+	margin: 50px auto;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+}
+
+.ingredient-group {
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ingredient-group h3 {
+	margin-top: 0;
+	color: #007BFF;
+	font-size: 1.5em;
+}
+
+input[type="checkbox"] {
+	margin-right: 10px;
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 5px;
+	border: none;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin-top: 20px;
+	background-color: #007BFF;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+button:hover {
+	background-color: #33adff;
+}
+
+
+.validationError {
+	color: red;
+	display: block; /* Display error messages as blocks below input fields */
+	margin-top: 5px; /* Add some space between input and error message */
+	font-size: 0.8em; /* Adjust font size for error messages */
+}

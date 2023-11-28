@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    generate-unique-name: false
+    name: tacocloud
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: your-facebook-client-id
+            client-secret: your-facebook-client-secret
+            scope:
+              - email
+              - public_profile
