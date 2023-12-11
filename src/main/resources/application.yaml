@@ -3,7 +3,39 @@ spring:
     console:
       enabled: true
   datasource:
-    generate-unique-name: false
-    name: tacocloud
+    url: jdbc:mysql://localhost:3306/taco_cloud_db?createDatabaseIfNotExist=true
+    username: root
+    password: poi321
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non-contextual-creation: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
     defer-datasource-initialization: true
+  data:
+    rest:
+      base-path: /data-api
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+      client:
+        registration:
+          taco-admin-client:
+          provider: tacocloud
+          client-id: taco-admin-client
+          client-secret: secret
+          authorization-grant-type: authorization_code
+          redirect-uri: "http://127.0.0.1:9090/login/oauth2/code/{registrationId}"
+          scope: writeIngredients, deleteIngredients, openid
+     
+        provider:
+          tacocloud:
+            issuer-uri: http:/ /authserver:9000
+

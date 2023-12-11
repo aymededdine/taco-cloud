@@ -1,5 +1,6 @@
 package tacos.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,9 +10,12 @@ import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.data.rest.core.annotation.RestResource;
+
 
 
 @Entity
+@RestResource(rel="tacos", path="tacos")
 public class Taco {
 	
 	public Taco() {
@@ -19,7 +23,7 @@ public class Taco {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Taco(String name, List<IngredientRef> ingredients) {
+	public Taco(String name, List<Ingredient> ingredients) {
 		super();
 		this.name = name;
 		this.ingredients = ingredients;
@@ -27,7 +31,7 @@ public class Taco {
 	
 	
 	
-	public Taco(Long id, Date createdAt, String name, List<IngredientRef> ingredients) {
+	public Taco(Long id, Date createdAt, String name, List<Ingredient> ingredients) {
 		super();
 		this.id = id;
 		this.createdAt = createdAt;
@@ -49,7 +53,7 @@ public class Taco {
 	@NotNull
 	@Size(min=1, message="You must choose at least 1 ingredient")
 	@ManyToMany()
-	private List<IngredientRef> ingredients;
+	private List<Ingredient> ingredients = new ArrayList<>();
 	
 	public Long getId() {
 		return id;
@@ -73,10 +77,10 @@ public class Taco {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<IngredientRef> getIngredients() {
+	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
-	public void setIngredients(List<IngredientRef> ingredients) {
+	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
 	

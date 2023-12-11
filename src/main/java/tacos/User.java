@@ -31,6 +31,7 @@ public class User implements UserDetails {
 	 private Long id;
 	 private final String username;
 	 private final String password;
+	 private final String authority;
 	 private final String fullname;
 	 private final String street;
 	 private final String city;
@@ -42,7 +43,7 @@ public class User implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		 return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+		 return Arrays.asList(new SimpleGrantedAuthority(authority));
 	}
 
 	@Override
